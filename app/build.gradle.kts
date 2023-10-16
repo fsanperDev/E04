@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.fsanper.e04"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.fsanper.e04"
