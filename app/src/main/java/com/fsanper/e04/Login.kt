@@ -4,6 +4,7 @@ import android.util.Patterns
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -34,6 +35,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -119,14 +121,19 @@ fun Login() {
                     val description = if (hidden) "Ocultar contraseña" else "Revelar contraseña" //6
                     Icon(painter = vector, contentDescription = description,
                         tint = Color.Gray,
-                        modifier = Modifier.width(25.dp).height(25.dp).padding(end=5.dp))
+                        modifier = Modifier
+                            .width(25.dp)
+                            .height(25.dp)
+                            .padding(end = 5.dp))
                 }
             }
         )
 
         TextButton(
             onClick = { /*TODO*/ },
-            modifier = Modifier.align(Alignment.End).padding(3.dp)
+            modifier = Modifier
+                .align(Alignment.End)
+                .padding(3.dp)
         ) {
             Text(
                 text = "Forgotten password?", fontSize = 10.sp, color = myColor
@@ -177,7 +184,15 @@ fun Login() {
             color = Color.Gray,
             thickness = 1.dp,
         )
-        Text(text = "Don't have an account?", modifier = Modifier.padding(15.dp))
+        Row {
+            Text(text = "Don't have an account?", modifier = Modifier.padding(top = 30.dp),
+                fontSize = 12.sp)
+            TextButton(onClick = { /*TODO*/ }) {
+                Text(text = "Sign Up", color = myColor, fontSize = 12.sp,
+                    modifier = Modifier.padding(top = 22.dp))
+            }
+        }
+
     }
 }
 
