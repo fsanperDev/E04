@@ -1,5 +1,6 @@
 package com.fsanper.e04
 
+import android.app.Activity
 import android.util.Patterns
 import android.widget.Toast
 import androidx.compose.foundation.Image
@@ -71,6 +72,7 @@ fun Login() {
     var openForgottenPass = rememberSaveable() {
         mutableStateOf(false)
     }
+    val activity = (LocalContext.current as? Activity)
 
     var hidden by remember { mutableStateOf(true) }
     var myColor = Color(0xFF0197FE)
@@ -93,7 +95,7 @@ fun Login() {
             imageVector = Icons.Rounded.Close,
             contentDescription ="Icon",
             tint = Color.Black,
-            modifier = Modifier.clickable {  })
+            modifier = Modifier.clickable { activity?.finish() })
     }
 
     Column(
