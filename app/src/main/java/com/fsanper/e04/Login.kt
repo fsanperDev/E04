@@ -28,7 +28,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 
-@OptIn(ExperimentalMaterial3Api::class)
+
+@Composable
+fun MySpacer(size: Int) {
+    Spacer(modifier = Modifier.height(size.dp))
+}
+
 @Preview(
     name = "P1",
     showSystemUi = true,
@@ -37,6 +42,8 @@ import androidx.compose.ui.unit.dp
     apiLevel = 33,
     device = Devices.NEXUS_6
 )
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Login() {
     var username by rememberSaveable(){
@@ -63,9 +70,9 @@ fun Login() {
         )
 
         TextField(value = username, onValueChange = { username = it })
-        Spacer(modifier = Modifier.height(10.dp))
+        MySpacer(size = 10)
         TextField(value = password, onValueChange = { password = it })
-        Spacer(modifier = Modifier.height(16.dp))
+        MySpacer(size = 16)
 
         Button(onClick = { /*TODO*/ }) {
             Text(text = "Iniciar Sesion")
