@@ -69,21 +69,18 @@ fun Login() {
     val context = LocalContext.current
     val userValido = "prueba@gmail.com"
     val passValido = "123456"
+    val activity = (LocalContext.current as? Activity)
+    var hidden by remember { mutableStateOf(true) }
+    var myColor = Color(0xFF0197FE)
+
     var openForgottenPass = rememberSaveable() {
         mutableStateOf(false)
     }
-    val activity = (LocalContext.current as? Activity)
-
-    var hidden by remember { mutableStateOf(true) }
-    var myColor = Color(0xFF0197FE)
     var username by rememberSaveable() {
         mutableStateOf("")
     }
     var password by rememberSaveable() {
         mutableStateOf("")
-    }
-    var disable by rememberSaveable {
-        mutableStateOf(false)
     }
     val isEmailValid = username.isNotBlank() && Patterns.EMAIL_ADDRESS.matcher(username).matches()
     val isPasswordValid = password.length >= 6
