@@ -104,8 +104,6 @@ fun Login() {
             .padding(16.dp),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
-
-
         ) {
 
         Image(
@@ -195,11 +193,20 @@ fun Login() {
             Text(text = "Log In")
         }
 
-        Divider(
-            modifier = Modifier.padding(start = 16.dp, end = 16.dp),
-            color = Color.Gray,
-            thickness = 1.dp,
-        )
+        Row(modifier = Modifier.fillMaxWidth()) {
+            Divider(
+                modifier = Modifier.weight(1f).align(Alignment.CenterVertically),
+                color = Color.Gray
+            )
+            Text(
+                text = "OR", color = Color.Gray,
+                modifier = Modifier.padding(horizontal = 20.dp)
+            )
+            Divider(
+                modifier = Modifier.weight(1f).align(Alignment.CenterVertically),
+                color = Color.Gray
+            )
+        }
 
         TextButton(
             onClick = { /*TODO*/ },
@@ -224,6 +231,7 @@ fun Login() {
             color = Color.Gray,
             thickness = 1.dp,
         )
+
         Row {
             Text(
                 text = "Don't have an account?", modifier = Modifier.padding(top = 30.dp),
@@ -236,7 +244,6 @@ fun Login() {
                 )
             }
         }
-
     }
 }
 
@@ -288,8 +295,6 @@ fun ForgottenPassword(
                     }
                 }
             }
-
-
         }
     }
 }
