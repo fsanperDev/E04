@@ -207,7 +207,7 @@ fun Login() {
                 .fillMaxWidth()
                 .padding(18.dp)
         ) {
-            Icon(
+            Image(
                 painter = painterResource(id = R.drawable.facebook),
                 contentDescription = "facebook", modifier = Modifier
                     .height(20.dp)
