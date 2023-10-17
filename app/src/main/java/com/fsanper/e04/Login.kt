@@ -100,8 +100,7 @@ fun Login() {
 
     Column(
         modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp),
+            .fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         ) {
@@ -111,7 +110,7 @@ fun Login() {
             contentDescription = "Instagram",
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 16.dp, end = 16.dp, top = 25.dp)
+                .padding(start = 16.dp, end = 16.dp, top = 110.dp)
         )
 
         OutlinedTextField(
@@ -119,7 +118,7 @@ fun Login() {
             onValueChange = { username = it },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 16.dp, end = 16.dp, top = 25.dp),
+                .padding(start = 23.dp, end = 23.dp, top = 25.dp),
             placeholder = { Text(text = "Email address", color = Color.Gray) }
 
         )
@@ -129,7 +128,7 @@ fun Login() {
             onValueChange = { password = it },
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 16.dp, end = 16.dp, top = 5.dp),
+                .padding(start = 23.dp, end = 23.dp, top = 10.dp),
             placeholder = { Text(text = "Password", color = Color.Gray) },
             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Password),
             visualTransformation =
@@ -157,7 +156,7 @@ fun Login() {
             onClick = { openForgottenPass.value = !openForgottenPass.value },
             modifier = Modifier
                 .align(Alignment.End)
-                .padding(3.dp)
+                .padding(end = 23.dp)
         ) {
             Text(
                 text = "Forgotten password?", fontSize = 10.sp, color = myColor
@@ -186,14 +185,17 @@ fun Login() {
             ),
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 16.dp, end = 16.dp, bottom = 25.dp),
+                .padding(start = 23.dp, end = 23.dp, bottom = 25.dp),
             shape = RoundedCornerShape(10.dp),
             enabled = isButtonEnabled
         ) {
             Text(text = "Log In")
         }
 
-        Row(modifier = Modifier.fillMaxWidth()) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 25.dp, end = 25.dp)) {
             Divider(
                 modifier = Modifier.weight(1f).align(Alignment.CenterVertically),
                 color = Color.Gray
@@ -226,21 +228,21 @@ fun Login() {
             )
         }
 
+
         Divider(
-            modifier = Modifier.padding(top = 135.dp),
-            color = Color.Gray,
-            thickness = 1.dp,
+            modifier = Modifier.padding(top = 80.dp),//200
+            color = Color.Gray
         )
 
         Row {
             Text(
-                text = "Don't have an account?", modifier = Modifier.padding(top = 30.dp),
+                text = "Don't have an account?", modifier = Modifier.padding(top = 18.dp),
                 fontSize = 12.sp
             )
             TextButton(onClick = { /*TODO*/ }) {
                 Text(
                     text = "Sign Up", color = myColor, fontSize = 12.sp,
-                    modifier = Modifier.padding(top = 22.dp)
+                    modifier = Modifier.padding(top = 6.dp)
                 )
             }
         }
