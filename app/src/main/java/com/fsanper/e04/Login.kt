@@ -66,16 +66,10 @@ fun MySpacer(size: Int) {
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Login() {
-    val context = LocalContext.current
-    val userValido = "prueba@gmail.com"
-    val passValido = "123456"
     val activity = (LocalContext.current as? Activity)
     var hidden by remember { mutableStateOf(true) }
     var myColor = Color(0xFF0197FE)
 
-    var openForgottenPass = rememberSaveable() {
-        mutableStateOf(false)
-    }
     var username by rememberSaveable() {
         mutableStateOf("")
     }
@@ -150,7 +144,7 @@ fun Login() {
         )
 
         TextButton(
-            onClick = { openForgottenPass.value = !openForgottenPass.value },
+            onClick = {},
             modifier = Modifier
                 .align(Alignment.End)
                 .padding(end = 23.dp)
@@ -159,23 +153,9 @@ fun Login() {
                 text = "Forgotten password?", fontSize = 10.sp, color = myColor
             )
         }
-        when{
-            openForgottenPass.value -> {
-                ForgottenPassword(
-                    onDimissRequest = {openForgottenPass.value = false},
-                    onConfirmation = {openForgottenPass.value = false}
-                )
-            }
-        }
 
         Button(
-            onClick = {
-                if ((username == userValido) && (password == passValido)){
-                    Toast.makeText(context, "Usuario correcto", Toast.LENGTH_SHORT).show()
-                }else{
-                    Toast.makeText(context, "Usuario incorrecto", Toast.LENGTH_SHORT).show()
-                }
-                      },
+            onClick = {},
             colors = ButtonDefaults.buttonColors(
                 containerColor = myColor,
                 contentColor = Color.White
@@ -241,58 +221,6 @@ fun Login() {
                     text = "Sign Up", color = myColor, fontSize = 12.sp,
                     modifier = Modifier.padding(top = 6.dp)
                 )
-            }
-        }
-    }
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun ForgottenPassword(
-    onDimissRequest: () -> Unit,
-    onConfirmation: () -> Unit
-) {
-
-    Dialog(onDismissRequest = { onDimissRequest() }) {
-        Card (
-            shape = RoundedCornerShape(16.dp),
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(300.dp)
-                .padding(16.dp)
-        ){
-            Column( modifier = Modifier
-                .fillMaxSize(),
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally){
-                Text(text = "Introduce your Email")
-                OutlinedTextField(
-                    value = "",
-                    onValueChange = {  },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(start = 16.dp, end = 16.dp, top = 25.dp),
-                    placeholder = { Text(text = "Email address", color = Color.Gray) }
-
-                )
-                Row (
-                    modifier = Modifier
-                        .fillMaxWidth(),
-                    horizontalArrangement = Arrangement.Center,
-                ){
-                    TextButton(
-                        onClick = { onDimissRequest() },
-                        modifier = Modifier.padding(8.dp),
-                    ) {
-                        Text("Dismiss")
-                    }
-                    TextButton(
-                        onClick = { onConfirmation() },
-                        modifier = Modifier.padding(8.dp),
-                    ) {
-                        Text("Confirm")
-                    }
-                }
             }
         }
     }
