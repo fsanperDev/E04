@@ -77,7 +77,7 @@ fun Login() {
         mutableStateOf("")
     }
     val isEmailValid = username.isNotBlank() && Patterns.EMAIL_ADDRESS.matcher(username).matches()
-    val isPasswordValid = password.length >= 6
+    val isPasswordValid = password.length >= 7
     val isButtonEnabled = isEmailValid && isPasswordValid
 
     Column (modifier = Modifier.padding(bottom = 15.dp, top = 15.dp, end = 16.dp),
@@ -111,7 +111,6 @@ fun Login() {
                 .fillMaxWidth()
                 .padding(start = 23.dp, end = 23.dp, top = 25.dp),
             placeholder = { Text(text = "Email address", color = Color.Gray) }
-
         )
 
         OutlinedTextField(
@@ -130,7 +129,7 @@ fun Login() {
                         if (hidden) R.drawable.ic_visibility_off
                         else R.drawable.ic_visibility
                     )
-                    val description = if (hidden) "Ocultar contraseña" else "Revelar contraseña" //6
+                    val description = if (hidden) "Ocultar contraseña" else "Revelar contraseña"
                     Icon(
                         painter = vector, contentDescription = description,
                         tint = Color.Gray,
