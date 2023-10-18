@@ -207,7 +207,7 @@ fun Login() {
 
 
         Divider(
-            modifier = Modifier.padding(top = 80.dp),//200
+            modifier = Modifier.padding(top = 80.dp),
             color = Color.Gray
         )
 
